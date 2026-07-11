@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Connect Four</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <main class="app">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Arcade Mode</p>
+        <h1>Neon Connect Four</h1>
+        <p class="subtitle">Drop discs, outsmart the AI, and trigger a glowing victory storm.</p>
+      </div>
+
+      <div class="scoreboard">
+        <div class="score-card red">
+          <span>Red</span>
+          <strong id="redScore">0</strong>
+        </div>
+        <div class="score-card yellow">
+          <span>Yellow</span>
+          <strong id="yellowScore">0</strong>
+        </div>
+        <div class="score-card ties">
+          <span>Ties</span>
+          <strong id="tieScore">0</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-panel">
+      <div class="info-card">
+        <h2>How to Play</h2>
+        <ol>
+          <li>Choose a mode: Human vs AI or Human vs Human.</li>
+          <li>Click any column to drop your disc into the board.</li>
+          <li>Discs fall to the lowest open space in that column.</li>
+          <li>Take turns and try to connect 4 discs before your opponent.</li>
+          <li>The AI plays automatically when AI mode is on.</li>
+        </ol>
+      </div>
+
+      <div class="info-card">
+        <h2>Rules</h2>
+        <ul>
+          <li>The board has 7 columns and 6 rows.</li>
+          <li>You cannot move a disc after placing it.</li>
+          <li>Winning lines can be horizontal, vertical, or diagonal.</li>
+          <li>If the board fills completely with no winner, the game ends in a tie.</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h2>Features</h2>
+        <ul>
+          <li>Neon arcade-style theme.</li>
+          <li>AI opponent with difficulty levels.</li>
+          <li>Sound effects for drops and wins.</li>
+          <li>Score tracker for wins and ties.</li>
+          <li>Restart button for instant rematches.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="game-shell">
+      <div class="controls">
+        <div class="control-group">
+          <label for="difficulty">AI Difficulty</label>
+          <select id="difficulty">
+            <option value="1">Easy</option>
+            <option value="3" selected>Medium</option>
+            <option value="5">Hard</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="mode">Mode</label>
+          <select id="mode">
+            <option value="ai" selected>Human vs AI</option>
+            <option value="pvp">Human vs Human</option>
+          </select>
+        </div>
+
+        <button id="soundToggle" class="btn secondary">Sound: On</button>
+        <button id="resetBtn" class="btn secondary">Restart</button>
+      </div>
+
+      <div class="status-bar">
+        <div class="turn-indicator">
+          <span id="turnDot" class="dot red"></span>
+          <p id="statusText">Your turn</p>
+        </div>
+      </div>
+
+      <div class="board-wrap">
+        <div id="board" class="board" aria-label="Connect Four board"></div>
+        <div id="hoverRow" class="hover-row" aria-hidden="true"></div>
+      </div>
+
+      <div class="message-card">
+        <p id="message">Click a column to start the match.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
